@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Winline Ad Blocker — Инструкция</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; background: #1a1a2e; color: #eee; }
+    h1 { color: #e63946; }
+    h2 { color: #f1faee; border-bottom: 1px solid #457b9d; padding-bottom: 8px; }
+    code { background: #16213e; padding: 2px 6px; border-radius: 4px; color: #e63946; }
+    ol li { margin: 12px 0; line-height: 1.6; }
+    .step { background: #16213e; padding: 16px; border-radius: 8px; margin: 12px 0; }
+    pre { background: #0f0f23; padding: 12px; border-radius: 6px; overflow-x: auto; }
+    a { color: #457b9d; }
+  </style>
+</head>
+<body>
+  <h1>🛡️ Winline Blur Extension</h1>
+  <p>Chrome расширение для автоматического блюра рекламы и надписей Winline на сайте slay-award.ru</p>
+
+  <h2>Как установить расширение</h2>
+  <ol>
+    <li class="step">
+      <strong>Откройте Chrome</strong> и перейдите по адресу:<br>
+      <code>chrome://extensions/</code>
+    </li>
+    <li class="step">
+      <strong>Включите режим разработчика</strong> — переключатель в правом верхнем углу
+    </li>
+    <li class="step">
+      <strong>Нажмите «Загрузить распакованное расширение»</strong><br>
+      Выберите папку: <code>D:\nrc\poo\winline-blur-extension</code>
+    </li>
+    <li class="step">
+      <strong>Готово!</strong> Расширение активировано. Откройте <a href="https://slay-award.ru/">slay-award.ru</a>
+    </li>
+  </ol>
+
+  <h2>Что делает расширение</h2>
+  <ul>
+    <li>Автоматически обнаруживает и блюрит все элементы с текстом «Winline» / «винлайн»</li>
+    <li>Скрывает iframe-рекламу с доменов winline</li>
+    <li>Работает с динамически загружаемым контентом (MutationObserver)</li>
+    <li>Показывает плавающую панель управления с настройками</li>
+  </ul>
+
+  <h2>Плавающая панель</h2>
+  <p>В правом нижнем углу страницы появится панель, где можно:</p>
+  <ul>
+    <li>Изменить интенсивность блюра (ползунок)</li>
+    <li>Включить/выключить расширение</li>
+    <li>Перезапустить сканирование</li>
+  </ul>
+
+  <h2>Регулировка блюра</h2>
+  <p>Если стандартная интенсивность не подходит, откройте <code>content.js</code> и измените:</p>
+  <pre>blurAmount: 8  // ← значение в пикселях (от 2 до 20)</pre>
+
+  <h2>Файлы расширения</h2>
+  <pre>
+winline-blur-extension/
+├── manifest.json      ← конфигурация расширения (Manifest V3)
+├── content.js         ← основной скрипт (детекция + блюр)
+├── styles.css         ← стили блюра и панели
+├── build-icons.mjs    ← генератор иконок
+└── icons/
+    ├── icon16.png
+    ├── icon48.png
+    └── icon128.png
+  </pre>
+
+  <h2>Обновление после изменений</h2>
+  <p>После редактирования файлов на <code>chrome://extensions/</code> нажмите кнопку 🔄 (обновить) у расширении.</p>
+</body>
+</html>
